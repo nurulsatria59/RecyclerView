@@ -3,6 +3,7 @@ package com.example.recyclerview
     import android.view.LayoutInflater
     import android.view.View
     import android.view.ViewGroup
+    import android.widget.ImageView
     import android.widget.Toast
     import androidx.recyclerview.widget.RecyclerView
     import kotlinx.android.synthetic.main.list_item_view.view.*
@@ -21,7 +22,7 @@ package com.example.recyclerview
             holder.bindItems(FootballList[position])
         }
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val FootballLogo = view.imgFootballLogo
+            val FootballLogo: ImageView = view.imgFootballLogo
             val FootballName = view.txtFootballName
             fun bindItems(data : FootballClub){
                 FootballLogo?.setImageBitmap(data.logo)
