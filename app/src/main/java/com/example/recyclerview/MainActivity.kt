@@ -1,21 +1,20 @@
 package com.example.recyclerview
 
     import android.graphics.BitmapFactory
-    import android.os.Bundle
     import androidx.appcompat.app.AppCompatActivity
-    import androidx.recyclerview.widget.GridLayoutManager
+    import android.os.Bundle
+    import androidx.recyclerview.widget.LinearLayoutManager
     import androidx.recyclerview.widget.RecyclerView
     import kotlinx.android.synthetic.main.activity_main.*
-
-class MainActivity : AppCompatActivity() {
-        private val fc: ArrayList<FootballClub> = ArrayList()
+    class MainActivity : AppCompatActivity() {
+        val fc: ArrayList<FootballClub> = ArrayList()
         private lateinit var layoutManager: RecyclerView.LayoutManager
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
             fc.add(
                 FootballClub(
-                    "Chelsea 1",
+                    "Chelsea",
                     BitmapFactory.decodeResource(
                         resources, R.drawable.icon1
                     )
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             )
             fc.add(
                 FootballClub(
-                    "Man Utd 1",
+                    "Man Utd",
                     BitmapFactory.decodeResource(
                         resources, R.drawable.icon2
                     )
@@ -31,61 +30,13 @@ class MainActivity : AppCompatActivity() {
             )
             fc.add(
                 FootballClub(
-                    "Liverpool 1",
+                    "Liverpool",
                     BitmapFactory.decodeResource(
                         resources, R.drawable.icon3
                     )
                 )
             )
-            fc.add(
-                FootballClub(
-                    "Chelsea 2",
-                    BitmapFactory.decodeResource(
-                        resources, R.drawable.icon1
-                    )
-                )
-            )
-            fc.add(
-                FootballClub(
-                    "Man Utd 2",
-                    BitmapFactory.decodeResource(
-                        resources, R.drawable.icon2
-                    )
-                )
-            )
-            fc.add(
-                FootballClub(
-                    "Liverpool ",
-                    BitmapFactory.decodeResource(
-                        resources, R.drawable.icon3
-                    )
-                )
-            )
-            fc.add(
-                FootballClub(
-                    "Chelsea 3",
-                    BitmapFactory.decodeResource(
-                        resources, R.drawable.icon1
-                    )
-                )
-            )
-            fc.add(
-                FootballClub(
-                    "Man Utd 3",
-                    BitmapFactory.decodeResource(
-                        resources, R.drawable.icon2
-                    )
-                )
-            )
-            fc.add(
-                FootballClub(
-                    "Liverpool 3",
-                    BitmapFactory.decodeResource(
-                        resources, R.drawable.icon3
-                    )
-                )
-            )
-            layoutManager = GridLayoutManager(this,3)
+            layoutManager = LinearLayoutManager(this)
             FootballClub.layoutManager = layoutManager
             FootballClub.adapter = RecyclerViewAdapter(this, fc)
         }
